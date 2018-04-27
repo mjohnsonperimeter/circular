@@ -1,0 +1,147 @@
+\documentclass[amssymb,useAMS,prd,aps,amsmath,onecolumn,superscriptaddress,nofootinbib]{revtex4}
+
+%% Language and font encodings
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{slashed}
+
+%% Sets page size and margins
+\usepackage[a4paper,top=3cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+
+%% Useful packages
+\usepackage{amsmath}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{float}
+\usepackage{multirow}
+\usepackage{graphicx}
+\usepackage[caption=false]{subfig}
+
+\usepackage{array}
+\usepackage{psfrag}
+\usepackage{braket}
+\usepackage[usenames,dvipsnames]{color}
+
+\usepackage[usenames,dvipsnames]{color}
+
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+
+\newcommand{\vect}[1]{\boldsymbol{#1}}
+\usepackage{pslatex}
+
+\usepackage{psfrag}
+%Feynman Diagrams Packages
+\usepackage{tikz} 
+\usetikzlibrary{shapes,arrows,positioning,automata,backgrounds,calc,er,patterns}
+\usepackage{tikz-feynman}
+\tikzfeynmanset{compat=1.1.0}
+
+\newcommand{\AO}[1]{\textcolor{Green}{{ [AO: \bf#1]}}}
+\newcommand{\CB}[1]{\textcolor{Magenta}{{ [CB: \bf#1]}}}
+\newcommand{\remove}[1]{}
+\newcommand{\YL}[1]{\textcolor{blue}{{ [YL: \bf#1]}}}
+
+
+
+\parindent0cm
+\def\nn{\nonumber}
+
+\def\refe@jnl#1{{#1}}
+\def\aj{\refe@jnl{Astron.~J.}}
+\def\araa{\refe@jnl{Annu.~Rev.~Astron.~Astrophys.}}
+\def\apj{\refe@jnl{Astrophys.~J.}}
+\def\apjl{\refe@jnl{Astrophys.~J.~Lett.}}
+\def\aap{\refe@jnl{Astron.~Astrophys.}}
+\def\mnras{\refe@jnl{Mon.~Not.~R.~Astron.~Soc.}}
+\def\prd{\refe@jnl{Phys.~Rev.~D}}
+\def\fcp{\refe@jnl{Fund.~Cos.~Phys.}}
+\def\physrep{\refe@jnl{Phys.~Rep.}}
+\def\physlett{\refe@jnl{Phys.~Lett.}}
+
+\def\ChiralityProjector#1{\frac{(1 #1 \gamma_5)}{2}}
+\def\DiracSlash#1{\slash{ \hspace{-0.2cm}#1}}
+\def\DiracMatrix#1{\gamma_{#1}}
+\def\invisible#1{  }
+
+
+\def\ar{{c_r}}
+\def\al{{c_l}}
+\def\xm{{x_-}}
+\def\xp{{x_+}}
+\def\xpm{{x_\pm}}
+\def\dm{{\rm dm}}
+\def\dms{{{\rm dm}^\ast}}
+\def\pdm{{p_\dm}}
+\def\pdms{{p_\dms}}
+\def\pe{{p_{e^-}}}
+\def\pp{{p_{e^+}}}
+\def\pg{{p_{\gamma}}}
+\def\xb{{\bar x}}
+\def\xg{{x_\gamma}}
+\def\me{{m_e}}
+\def\MF{{m_F}}
+\def\mdm{{m_\dm}}
+
+\def\PL{{P_l}}
+\def\PR{{P_R}}
+\def\ad{{a_d}}
+\def\bd{{b_d}}
+\def\ae{{a_e}}
+\def\be{{b_e}}
+
+\def\epsuL{{\epsilon_1^{\lambda}}}
+\def\epsuLp{{\epsilon_1^{\lambda'}}}
+\def\epsdB{{\epsilon_2^{\beta}}}
+\def\epsdBp{{\epsilon_2^{\beta'}}}
+
+\def\epsur{{\epsilon_1^{(r)}}}
+\def\epsut{{\epsilon_1^{(l)}}}
+\def\epsdr{{\epsilon_2^{(r)}}}
+\def\epsdt{{\epsilon_2^{(l)}}}
+
+
+\def\epsu{{\epsilon_1}}
+\def\epsd{{\epsilon_2}}
+\def\ku{{k_1}}
+\def\kd{{k_2}}
+\def\pe1{{p_{e_1}}}
+\def\ghost#1{{ (here is the text made invisible)}}
+\def\Mref{{$\rm{M_{ref}}$  }}
+\begin{document}
+\section{Summary}
+This is a brief summary of what'd done and what's next to do for the project of CMB+Circular polarization. 
+Inn this project we are considering the process Compton-like  scattering: $e Z'\rightarrow e\gamma$. What we attempt to do is: Find the polarized squared amplitude in order to determine the cross section. Find the Boltzmann equation for polarization, to do so we need to follow what is already  done for Compton scattering process, but adding an equation  for the Z' (new interaction). We also *might add another scattering term in addition to Compton-like in the photon equation*-for this I am still not sure what additional scattering term. Here I summarize what has be done in the last month. Then A brief outlook.
+\begin{itemize}
+\item \textbf{Background review:} Before starting with the project, it was necessary went through the physics of CMB. It was necessary the review of some lectures on cosmology where the following was discussed:
+	\begin{itemize}
+	\item Boltzmann equation and the necessary tools: Legendre Polynomials, spherical harmonics. In this part, it was followed the multi-pole expansion of the photon equation as an exercise in order to understand the physics of CMB.  Some doubts  at the beginning and discussed with Celine: As far as I understand, we could describe radiation, CDM, baryons and Lambda, either in, matter era, radiation era or Lambda era. Now, The power spectrum of CMB (matter era) gives us information of the early U, i.e. it provides information of its components (DM, baryons, dark energy). the question was: Is the power spectrum obtained only from the description of radiation? How do we obtain information about all the components of the U from the power spectrum?  *\textit{need to add the discussion for these questions}* 
+	\end{itemize}
+\item \textbf{Based on 9501045:} in this paper is discussed the Boltzmann equation for polarization of photons from the CMB. The discussion of this Boltzmann equation is very different from the one discussed in Cosmology lectures and CMB power spectrum of temperature. 
+\begin{itemize}
+\item This Boltzmann equation is in terms of density matrix of the photon, which contains information of the Stokes parameters.
+\item It is also in terms of the Hamiltonian of interaction in the RHS.  
+\item Regarding to the Collision term.
+		\begin{itemize}
+		\item The term is not difficult but tedious. Maybe we can just take the result from this paper and apply it to our 			       proses. However it may not be that simple. 
+        \item The calculation of the polarized Compton scattering necessary, it is done. Now we need to check how is this 				  modified if I interchange a photon for a Z'. 
+        \item Also, because the density matrix is defined in terms of the amplitude of the process, we need to see how would 		       it change for the new processes. 
+		\end{itemize}
+\end{itemize}
+\item \textbf{Based on 150603116, 1605.09382,0801.1345} In order to answer the following questions:
+	\begin{itemize}
+	\item [1)] Can you remind me of the Lagrangian we are working with in this model?
+	\item[2)] Is the scattering cross section for DM + e-  ->  DM + e- larger or smaller than the Thompson cross section? If 	it is of comparable size or larger, then do we need to include this process in recombination? 
+	\item[3)] What is the mass of the DM? Is it relativistic or non-relativistic during recombination?
+	\end{itemize}
+I was checking these references and also discuss with Celine a bit about it. I already sent this by email but I guess it's better if we keep this in the document. First of all, these references  show the Lagrangian and couplings of Z' to fermions: but we need to specify which model we will be working on. Second, as far as understanding the  mass of the Z' should be small although several references claim it to be of $\mathcal{O}(\mathrm{Tev})$. the  DM-e scattering can be dangerous if Z' is too light (since the cross section could blow up?), but probably smaller than Thomson scattering, though we need to check as this might depend on the DM spin. I'm not sure if I'm completely understanding this. 
+\item \textbf{working on:} To start from somewhere, I decide to use the Lagrangian showed in reference 1605.09382 and determine the form of the (general) squared amplitude ($f\bar{f}'-\mathrm{vertex}\sim g_f\gamma_\mu$). 
+\item\textrm{outlook:}Regarding the Amplitude calculation, I think these are the first things we should do.
+	\begin{itemize}
+	\item Review of physics of Z' (more deep review).
+    \item Finish the squared amplitude, this might be  straightforward from Compton scattering.
+    \item Verify which another scattering process needs to be added (and see how this will modify the total amplitude)  to the           photon equation.
+	\end{itemize}
+\end{itemize}
+There are things I need to add besides the summary, and I will be adding as soon as I got some results from the calculations.
+\end{document}
