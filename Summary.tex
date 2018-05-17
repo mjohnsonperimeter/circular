@@ -18,6 +18,8 @@
 \usepackage{graphicx}
 \usepackage[caption=false]{subfig}
 
+\usepackage{cancel}
+
 \usepackage{array}
 \usepackage{psfrag}
 \usepackage{braket}
@@ -39,8 +41,6 @@
 \newcommand{\CB}[1]{\textcolor{Magenta}{{ [CB: \bf#1]}}}
 \newcommand{\remove}[1]{}
 \newcommand{\YL}[1]{\textcolor{blue}{{ [YL: \bf#1]}}}
-
-
 
 \parindent0cm
 \def\nn{\nonumber}
@@ -87,18 +87,23 @@
 \def\bd{{b_d}}
 \def\ae{{a_e}}
 \def\be{{b_e}}
+\def\g{{\gamma}}
 
-\def\epsuL{{\epsilon_1^{\lambda}}}
-\def\epsuLp{{\epsilon_1^{\lambda'}}}
-\def\epsdB{{\epsilon_2^{\beta}}}
-\def\epsdBp{{\epsilon_2^{\beta'}}}
+\def\epsg{{\epsilon_\gamma}}
+\def\cepsg{{\epsilon_\gamma^*}}
+\def\epsz{{\epsilon_z}}
+\def\cepsz{{\epsilon_z^*}}
 
-\def\epsur{{\epsilon_1^{(r)}}}
-\def\epsut{{\epsilon_1^{(l)}}}
-\def\epsdr{{\epsilon_2^{(r)}}}
+
+\def\vp{{\mathrm{u}(p)}}
+\def\bvp{{\bar{\mathrm{u}}(p)}}
+\def\up2{{\mathrm{u}(p_2)}}
+\def\bup2{{\bar{\mathrm{u}}(p_2)}}
+
 \def\epsdt{{\epsilon_2^{(l)}}}
-
-
+\def\kslash{{\cancel{k}}}
+\def\qslash{{\cancel{q}}}
+\def\pslash{{\cancel{p}}}
 \def\epsu{{\epsilon_1}}
 \def\epsd{{\epsilon_2}}
 \def\ku{{k_1}}
@@ -133,7 +138,7 @@ Inn this project we are considering the process Compton-like  scattering: $e Z'\
 	\item[3)] What is the mass of the DM? Is it relativistic or non-relativistic during recombination?
 	\end{itemize}
 I was checking these references and also discuss with Celine a bit about it. I already sent this by email but I guess it's better if we keep this in the document. First of all, these references  show the Lagrangian and couplings of Z' to fermions: but we need to specify which model we will be working on. Second, as far as understanding the  mass of the Z' should be small although several references claim it to be of $\mathcal{O}(\mathrm{Tev})$. the  DM-e scattering can be dangerous if Z' is too light (since the cross section could blow up?), but probably smaller than Thomson scattering, though we need to check as this might depend on the DM spin. I'm not sure if I'm completely understanding this. 
-\item \textbf{working on:} To start from somewhere, I decide to use the Lagrangian showed in reference 1605.09382 and determine the form of the (general) squared amplitude ($f\bar{f}'-\mathrm{vertex}\sim g_f\gamma_\mu$). 
+\item \textbf{working on:} To start from somewhere, I decide to use the Lagrangian showed in reference 1605.09382 and determine the form of the (general) squared amplitude ($f\bar{f} Z'-\mathrm{vertex}\sim g_f\gamma_\mu$). 
 \item\textrm{outlook:}Regarding the Amplitude calculation, I think these are the first things we should do.
 	\begin{itemize}
 	\item Review of physics of Z' (more deep review).
@@ -142,4 +147,55 @@ I was checking these references and also discuss with Celine a bit about it. I a
 	\end{itemize}
 \end{itemize}
 There are things I need to add besides the summary, and I will be adding as soon as I got some results from the calculations.
+%==========================================================================================
+%================================The calculation of the Amolitude==========================
+%==========================================================================================
+\section{General overview of Z' phisics}
+\section{Polarized matrix calculation}
+In order to perform the matrix element  we are using the general Feynman rule for the Neutral Current interactions coming from the Lagrangian \cite{Langacker:2008yv}
+\begin{equation}
+\mathcal{L}^{int}=eJ^\mu_{em}A_\mu+\frac{1}{2}\sum_{\alpha=1}^{n+1}\sum_ig_\alpha\bar{f}_i[g_V^\alpha+g_A^\alpha\gamma^5]f_i
+\end{equation}
+Where $g_{V,A}$ are the vector and axial couplings respectiblely, $\alpha=1$ corresponds to the SM, while $\alpha=2,...,n+1$ correspond to the additional $\mathrm{U}(1)'$[ I will add in the above section a brief discussion of this]. Taking up to  take $\alpha=2$ and the general coupling $(g_V+g_A)$, which will depend on the model we choose, we can calculate the total amplitude.
+
+ Following the Compton scattering calculations, we compute the s- and t- channer  of the $Z' \,e\rightarrow \gamma\,\, e$  scattering in a very general way. Roughly the matrix element for the s-channel shown in fig. (\ref{s-channel_scattering}) is 
+\begin{figure}
+\includegraphics[scale=.3]{zprime_e_scattering.png}
+\caption{s-channel of $Z' \,e\rightarrow \gamma\,\, e$ scattering.}\label{s-channel_scattering}
+\end{figure}
+\begin{equation}
+iA_s=-\frac{ieg_2}{s-\me^2}\bup2\g^\mu(\pslash+\qslash+\me)\g^\nu[g_V+g_A\g^5]\vp\cepsg_\mu(k)\epsz_\nu(q).
+\end{equation}
+Similarly, the amplitude for t-channel is given by,
+\begin{equation}
+iA_t=-\frac{ieg_2}{t-\me^2}\bup2\g^\nu[g_V+g_A\g^5](\pslash-\kslash+\me)\g^\mu\vp\cepsg_\mu(k)\epsz_\nu(q).
+\end{equation}
+determaning the total amplitude and squaring, (this might change when we add the extra interaction)
+\begin{equation}
+\vert A_\mathrm{Total}\vert^2=\vert A_{s}\vert^2+\vert A_{t}\vert^2+2 A_{s}A_t^*
+\end{equation}
+Individually we determine the squared elements corresponging to each chanel and their interference, obtaining,
+\begin{align*}
+\vert A_s\vert^2=&\frac{(eg_2)^2}{(s-\me^2)^2}M_s^{\mu\,\nu\,\alpha\,\beta}\cepsg_\mu\epsg_\beta\cepsz_\nu\epsz_\alpha\\
+\vert A_t\vert^2=&\frac{(eg_2)^2}{(t-\me^2)^2}M_t^{\mu\,\nu\,\alpha\,\beta}\cepsg_\mu\epsg_\beta\cepsz_\nu\epsz_\alpha\\
+ A_sA_t^*=&\frac{(eg_2)^2}{(s-\me^2)(t-\me^2)}M_{st}^{\mu\,\nu\,\alpha\,\beta}\cepsg_\mu\epsg_\beta\cepsz_\nu\epsz_\alpha
+\end{align*}
+where, each $M_i$ contain the resultant traces. In order to simplify the calculation of all these traces, we will rewrite the amplitude in the following form, 
+\begin{equation}
+\vert A_\mathrm{Total}\vert^2=(eg_2)^2[(g_V^2+g_A^2)(\vert A_{1s}\vert^2)+\vert A_{1t}\vert^2+A_{1s}A_{2t}^*)+(g_V^2-g_A^2)(\vert A_{2s}\vert^2)+\vert A_{2t}\vert^2+A_{2s}A_{2t}^*)+g_Ag_V(\vert A_{3s}\vert^2)+\vert A_{3t}\vert^2+A_{3s}A_{3t}^*)]
+\end{equation}
+see Mathematica notebook for the explicit form of all treaces. 
+Note: to preceed with the clculation of the amplitude, I need to be bery sure how to wrok with the Z' polarization vector in the initial state. 
+
+\begin{thebibliography}{9}
+%\cite{Langacker:2008yv}
+\bibitem{Langacker:2008yv}
+  P.~Langacker,
+  %``The Physics of Heavy $Z^\prime$ Gauge Bosons,''
+  Rev.\ Mod.\ Phys.\  {\bf 81} (2009) 1199
+  doi:10.1103/RevModPhys.81.1199
+  [arXiv:0801.1345 [hep-ph]].
+  %%CITATION = doi:10.1103/RevModPhys.81.1199;%%
+  %908 citations counted in INSPIRE as of 16 May 2018
+\end{thebibliography}
 \end{document}
